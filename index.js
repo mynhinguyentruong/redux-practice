@@ -12,7 +12,17 @@ function changeCount(amount) {
   }
 }
 
+function addFavoriteThing(thing) {
+  return {
+    type: "ADD_FAVORITE_THING",
+    payload: thing
+  }
+}
 
+const initialState = {
+  count: 0,
+  favoriteThings: []
+}
 
 //the reducer's job is to make changes to global state based on the action
 //the reducer function takes 2 arguments: 
@@ -22,14 +32,15 @@ function changeCount(amount) {
 //to determine how to update state
 //in other words, make changes to state based on the action.type argument
 
-function reducer(count = 0, action) {
+function reducer(state = initialState, action) {
   switch(action.type) {
     case "CHANGE_COUNT":
-      return count + action.payload
-    
+      return {...state, count: state.count + action.payload}
+    case "ADD_FAVORITE_THING":
+      return {...state, favoriteThings: [...state.favoriteThings, action.payload]}
     //need a default case, incase no argument or invalid argument passed in
     default:
-      return count
+      return state
   }
 }
 
@@ -56,4 +67,6 @@ store.subscribe(() => {
 
 
 store.dispatch(changeCount(5))
-store.dispatch(changeCount(-5))
+store.dispatch(changeCount(-1))
+store.dispatch(addFavoriteThing("Red Rosei"))
+store.dispatch(addFavoriteThing("yes yes"))
