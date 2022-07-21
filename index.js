@@ -42,3 +42,11 @@ const store = redux.createStore(reducer)
 store.subscribe(() => {
   console.log(store.getState())
 })
+
+
+//dispatch method
+//like a server who send your order to the kitchen or 
+//in this case "action" to the reducer
+
+// => dispatch expect some kind of action
+store.dispatch(increment()) 
