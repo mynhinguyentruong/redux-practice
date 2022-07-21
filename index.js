@@ -10,6 +10,11 @@ function increment() {
   }
 }
 
+function decrement() {
+  return {
+    type: "DECREMENT"
+  }
+}
 
 
 //the reducer's job is to make changes to global state based on the action
@@ -24,7 +29,8 @@ function reducer(count = 0, action) {
   switch(action.type) {
     case "INCREMENT":
       return count + 1
-
+    case "DECREMENT":
+      return count - 1
     //need a default case, incase no argument or invalid argument passed in
     default:
       return count
@@ -50,3 +56,4 @@ store.subscribe(() => {
 
 // => dispatch expect some kind of action
 store.dispatch(increment()) 
+store.dispatch(decrement())
