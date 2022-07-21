@@ -4,19 +4,14 @@
 //return object with a type property 
 //whose value is a description of change we would like to make in state
 
-function increment(amount) {
+function changeCount(amount) {
   return {
     //add payload property to make our action more "informative"
-    type: "INCREMENT",
+    type: "CHANGE_COUNT",
     payload: amount
   }
 }
 
-function decrement() {
-  return {
-    type: "DECREMENT"
-  }
-}
 
 
 //the reducer's job is to make changes to global state based on the action
@@ -29,10 +24,9 @@ function decrement() {
 
 function reducer(count = 0, action) {
   switch(action.type) {
-    case "INCREMENT":
+    case "CHANGE_COUNT":
       return count + action.payload
-    case "DECREMENT":
-      return count - 1
+    
     //need a default case, incase no argument or invalid argument passed in
     default:
       return count
@@ -57,5 +51,9 @@ store.subscribe(() => {
 //in this case "action" to the reducer
 
 // => dispatch expect some kind of action
-store.dispatch(increment(5)) 
-store.dispatch(decrement())
+// store.dispatch(increment(5)) //invalid action
+// store.dispatch(decrement()) //invalid action
+
+
+store.dispatch(changeCount(5))
+store.dispatch(changeCount(-5))
