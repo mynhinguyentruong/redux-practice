@@ -34,3 +34,11 @@ function reducer(count = 0, action) {
 
 //create a redux store
 const store = redux.createStore(reducer)
+
+//subscribe to the changes in the store
+//if any change ever occur, it will run subscribe method
+//inside subscribe method, we call getState method to get the current state
+
+store.subscribe(() => {
+  console.log(store.getState())
+})
