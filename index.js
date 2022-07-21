@@ -1,4 +1,4 @@
-const redux = require("redux")
+// const redux = require("Redux")
 //create action creators
 //action creators are functions that 
 //return object with a type property 
@@ -39,7 +39,7 @@ function reducer(count = 0, action) {
 
 
 //create a redux store
-const store = redux.createStore(reducer)
+const store = Redux.createStore(reducer)
 
 //subscribe to the changes in the store
 //if any change ever occur, it will run subscribe method
@@ -51,7 +51,7 @@ store.subscribe(() => {
 
 
 //dispatch method
-//like a server who send your order to the kitchen or 
+//like a server who SEND your order to the kitchen or 
 //in this case "action" to the reducer
 
 // => dispatch expect some kind of action
