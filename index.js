@@ -4,46 +4,10 @@
 //return object with a type property 
 //whose value is a description of change we would like to make in state
 
-function changeCount(amount) {
-  return {
-    //add payload property to make our action more "informative"
-    type: "CHANGE_COUNT",
-    payload: amount
-  }
-}
 
-function addFavoriteThing(thing) {
-  return {
-    type: "ADD_FAVORITE_THING",
-    payload: thing
-  }
-}
 
-function removeFavoriteThing(thing) {
-  return {
-    type: "REMOVE_FAVORITE_THING",
-    payload: thing
-  }
-}
+// Move actions into their own separate files
 
-function setYoutubeTitle(title) {
-  return {
-    type: "SET_YOUTUBE_TITLE",
-    payload: title
-  }
-}
-
-function upVote() {
-  return {
-    type: "UP_VOTE"
-  }
-}
-
-function downVote() {
-  return {
-    type: "DOWN_VOTE"
-  }
-}
 
 const initialState = {
   count: 0,
