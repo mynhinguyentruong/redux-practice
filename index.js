@@ -39,6 +39,12 @@ function upVote() {
   }
 }
 
+function downVote() {
+  return {
+    type: "DOWN_VOTE"
+  }
+}
+
 const initialState = {
   count: 0,
   favoriteThings: [],
@@ -90,6 +96,17 @@ function reducer(state = initialState, action) {
           votes: {
             ...state.youtubeVideo.votes, 
             up: state.youtubeVideo.votes.up + 1
+          }
+        }
+      }
+    case "DOWN_VOTE":
+      return {
+        ...state,
+        youtubeVideo: {
+          ...state.youtubeVideo,
+          votes: {
+            ...state.youtubeVideo.votes,
+            down: state.youtubeVideo.votes.down + 1
           }
         }
       }
