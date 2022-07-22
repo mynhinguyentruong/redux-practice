@@ -19,6 +19,13 @@ function addFavoriteThing(thing) {
   }
 }
 
+function removeFavoriteThing(thing) {
+  return {
+    type: "REMOVE_FAVORITE_THING",
+    payload: thing
+  }
+}
+
 const initialState = {
   count: 0,
   favoriteThings: []
@@ -35,9 +42,18 @@ const initialState = {
 function reducer(state = initialState, action) {
   switch(action.type) {
     case "CHANGE_COUNT":
+      //because state is no longer a simple type, IT IS AN OBJECT
+      //therefore, when updating state
+      //we have to make sure to keep all the other parts of state INTACT
+      //by using spread operator
       return {...state, count: state.count + action.payload}
     case "ADD_FAVORITE_THING":
       return {...state, favoriteThings: [...state.favoriteThings, action.payload]}
+    case "REMOVE_FAVORITE_THING":
+      return {
+        ...state, 
+        favoriteThings: state.favoriteThings.filter(thing => thing !== action.payload)
+      }
     //need a default case, incase no argument or invalid argument passed in
     default:
       return state
@@ -70,3 +86,4 @@ store.dispatch(changeCount(5))
 store.dispatch(changeCount(-1))
 store.dispatch(addFavoriteThing("Red Rosei"))
 store.dispatch(addFavoriteThing("yes yes"))
+store.dispatch(removeFavoriteThing("yes yes"))
