@@ -28,4 +28,7 @@ const store = Redux.createStore(rootReducer)
 store.subscribe(() => {
   console.log(store.getState())
 })
+
+console.log(store)
+
 export default store
