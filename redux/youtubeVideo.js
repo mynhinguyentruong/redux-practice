@@ -1,23 +1,23 @@
-function setYoutubeTitle(title) {
+export function setYoutubeTitle(title) {
   return {
     type: "SET_YOUTUBE_TITLE",
     payload: title
   }
 }
 
-function incrementViewCount() {
+export function incrementViewCount() {
   return {
     type: "INCREMENT_VIEW_COUNT"
   }
 }
 
-function upVote() {
+export function upVote() {
   return {
     type: "UP_VOTE"
   }
 }
 
-function downVote() {
+export function downVote() {
   return {
     type: "DOWN_VOTE"
   }
@@ -32,7 +32,7 @@ const initialState = {
     }
 }
 
-function youtubeVideoReducer(youtubeVideo = initialState, action) {
+export default function youtubeVideoReducer(youtubeVideo = initialState, action) {
   switch(action.type) {
     case "SET_YOUTUBE_TITLE":
       return {
